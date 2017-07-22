@@ -28,9 +28,10 @@ export const getLoginHeaders = () => {
           .catch(err => err)
 }
 
-export const getSalesList = (headers) => {
+export const getSalesList = (headers, pageNumber) => {
+  console.log('getting sales list', pageNumber)
   return agent
-          .get('http://stublr.com/sales-list')
+          .get(`http://stublr.com/sales-list/page/${pageNumber}/?sldate=0&sltime=0&sltype=0&slmrct=0&slcnty=0&slcats=0&sllist=0`)
           .set(headers)
           .then(res => res.text)
           .catch(err => err)
