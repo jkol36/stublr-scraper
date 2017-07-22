@@ -23,4 +23,4 @@ import {
     .catch(console.log)
  }
 
- start()
+setInterval(() => start(), 86400000)
