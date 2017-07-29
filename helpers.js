@@ -29,9 +29,15 @@ export const getLoginHeaders = () => {
 }
 
 export const getSalesList = (headers, pageNumber) => {
-  console.log('getting sales list', pageNumber)
+  let url 
+  if(pageNumber === 1) {
+    url = 'http://stublr.com/sales-list/'
+  }
+  else {
+    url = `http://stublr.com/sales-list/page/${pageNumber}/?sldate=0&sltime=0&sltype=0&slmrct=0&slcnty=0&slcats=0&sllist=0`
+  }
   return agent
-          .get(`http://stublr.com/sales-list/page/${pageNumber}/?sldate=0&sltime=0&sltype=0&slmrct=0&slcnty=0&slcats=0&sllist=0`)
+          .get(url)
           .set(headers)
           .then(res => res.text)
           .catch(err => err)

@@ -12,7 +12,7 @@ import {
     return loginToStublr()
     .then(headers => {
       let promises = []
-      for(var i=0; i< 37; i++) {
+      for(var i=1; i<= 50; i++) {
         promises.push(getSalesList(headers, i))
       }
       return Promise.all(promises)
